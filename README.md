@@ -20,6 +20,5 @@ git commit -m "chore: init blog repo"
 可选两种方式：
 
 1. Cloudflare Pages：将构建输出目录指向 `blog/`
-2. Wrangler/Workers：以静态资源方式发布 `blog/`
 
 后续接入时，建议先确定你要用 Pages 还是 Workers，再补对应配置文件。
