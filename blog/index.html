@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="勇鹏在用 AI 的博客：做值得写的事，写值得读的东西。" />
+  <title>勇鹏在用 AI 的博客</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cream: "#f7f4ed",
+            paper: "#fcfbf8",
+            ink: "#1c1c1c",
+            line: "#eceae4",
+            warm: "#d97643",
+            moss: "#66734f",
+            blue: "#55788f",
+          },
+          fontFamily: {
+            sans: [
+              "Camera Plain Variable",
+              "PingFang SC",
+              "Hiragino Sans GB",
+              "Microsoft YaHei",
+              "ui-sans-serif",
+              "system-ui",
+              "sans-serif",
+            ],
+          },
+          boxShadow: {
+            insetSoft:
+              "rgba(255,255,255,.2) 0 .5px 0 0 inset, rgba(0,0,0,.2) 0 0 0 .5px inset, rgba(0,0,0,.05) 0 1px 2px 0",
+            focusSoft: "rgba(0,0,0,.1) 0 4px 12px",
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background:
+        radial-gradient(circle at 14% 10%, rgba(217, 118, 67, 0.18), transparent 30rem),
+        radial-gradient(circle at 86% 8%, rgba(85, 120, 143, 0.14), transparent 28rem),
+        linear-gradient(120deg, rgba(28, 28, 28, 0.025) 0 1px, transparent 1px 18px),
+        #f7f4ed;
+    }
+
+    body::before {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      content: "";
+      opacity: .45;
+      background-image:
+        linear-gradient(rgba(28, 28, 28, .035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(28, 28, 28, .035) 1px, transparent 1px);
+      background-size: 64px 64px;
+      mask-image: linear-gradient(to bottom, black, transparent 80%);
+    }
+  </style>
+</head>
+<body class="min-h-screen overflow-x-hidden bg-cream font-sans text-ink antialiased">
+  <nav class="sticky top-3 z-10 mx-auto mt-3 flex w-[min(1180px,calc(100%_-_24px))] flex-col gap-3 rounded-[22px] border border-line bg-cream/85 px-4 py-3 backdrop-blur-xl md:flex-row md:items-center md:justify-between md:rounded-full md:py-2 md:pl-5 md:pr-2" aria-label="主导航">
+    <a class="inline-flex items-center gap-2.5 text-[15px] font-semibold no-underline tracking-[-0.2px]" href="#">
+      <span class="grid size-7 place-items-center rounded-full border border-ink/40 bg-paper text-[13px]">AI</span>
+      <span>勇鹏在用 AI</span>
+    </a>
+    <div class="flex flex-wrap items-center gap-2">
+      <a class="rounded-full px-3.5 py-2 text-sm text-ink/80 no-underline transition hover:bg-ink/[.04]" href="#articles">文章</a>
+      <a class="rounded-full px-3.5 py-2 text-sm text-ink/80 no-underline transition hover:bg-ink/[.04]" href="#projects">项目</a>
+      <a class="rounded-full px-3.5 py-2 text-sm text-ink/80 no-underline transition hover:bg-ink/[.04]" href="#contact">联系</a>
+      <a class="rounded-md bg-ink px-4 py-2 text-sm text-paper no-underline shadow-insetSoft transition hover:opacity-80 focus:shadow-focusSoft" href="https://github.com/YuppyChen" target="_blank" rel="noreferrer">GitHub</a>
+    </div>
+  </nav>
+
+  <main class="mx-auto w-[min(1180px,calc(100%_-_24px))]">
+    <section class="grid gap-10 pb-16 pt-16 md:grid-cols-[minmax(0,1.1fr)_minmax(280px,.9fr)] md:items-end md:pb-20 md:pt-28">
+      <div>
+        <p class="mb-5 inline-flex items-center gap-2 rounded-full border border-line bg-paper/45 px-3 py-1.5 text-sm text-ink/60">
+          <span class="size-1.5 rounded-full bg-warm"></span>
+          个人博客 / AI 实验记录
+        </p>
+        <h1 class="max-w-4xl text-[clamp(44px,7vw,88px)] font-semibold leading-[.96] tracking-[-0.04em]">
+          做值得写的事情，写值得读的东西。
+        </h1>
+        <p class="mt-6 max-w-2xl text-[clamp(18px,2vw,23px)] leading-8 text-ink/80">
+          这里记录我用 AI 写作、写代码、做音乐、跑项目和做自媒体的具体实验。不是资讯站，也不是教程堆栈，而是一份持续更新的个人工作台。
+        </p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a class="rounded-md bg-ink px-5 py-2.5 text-paper no-underline shadow-insetSoft transition hover:opacity-80 focus:shadow-focusSoft" href="#articles">阅读最新文章</a>
+          <a class="rounded-md border border-ink/40 px-5 py-2.5 no-underline transition hover:bg-paper/70 hover:opacity-80 focus:shadow-focusSoft" href="./article/chatgpt-plus-ios-turkey.html">本地文章</a>
+        </div>
+      </div>
+
+      <a class="group block rounded-[28px] border border-line bg-paper/55 p-5 no-underline transition hover:border-ink/40 md:p-6" href="./article/chatgpt-plus-ios-turkey.html">
+        <div class="mb-12 flex items-center justify-between gap-3">
+          <span class="text-sm tabular-nums text-ink/50">2026-05-09</span>
+        </div>
+        <h2 class="text-3xl font-semibold leading-tight tracking-[-0.03em] md:text-4xl">
+          被封号坑惨了？我用这个方法订阅 ChatGPT Plus，稳了快一个月
+        </h2>
+        <div class="mt-8 inline-flex items-center gap-2 text-sm text-ink/70 transition group-hover:translate-x-1">
+          打开文章
+          <span aria-hidden="true">→</span>
+        </div>
+      </a>
+    </section>
+
+    <section id="articles" class="py-14 md:py-[72px]" aria-labelledby="articles-title">
+      <div class="mb-6 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+        <h2 id="articles-title" class="text-[clamp(34px,5vw,56px)] font-semibold leading-none tracking-[-0.03em]">博客列表</h2>
+      </div>
+
+      <div class="grid gap-2.5">
+        <a class="grid gap-2 rounded-[14px] border border-line bg-paper/55 px-4 py-4 no-underline transition hover:translate-x-1 hover:border-ink/40 md:grid-cols-[118px_minmax(0,1fr)_auto] md:items-center md:px-5" href="./article/chatgpt-plus-ios-turkey.html">
+          <span class="text-sm tabular-nums text-ink/60">2026-05-09</span>
+          <span class="text-[clamp(17px,2vw,20px)] leading-snug">被封号坑惨了？我用这个方法订阅 ChatGPT Plus，稳了快一个月</span>
+        </a>
+        <a class="grid gap-2 rounded-[14px] border border-line bg-cream/65 px-4 py-4 no-underline transition hover:translate-x-1 hover:border-ink/40 hover:bg-paper/60 md:grid-cols-[118px_minmax(0,1fr)_auto] md:items-center md:px-5" href="https://mp.weixin.qq.com/s/3Cbyy4rQNTC-WmezqaHK-Q" target="_blank" rel="noreferrer">
+          <span class="text-sm tabular-nums text-ink/60">2026-05-07</span>
+          <span class="text-[clamp(17px,2vw,20px)] leading-snug">4月份复盘：涨粉2984，广告主收益434，还有跨境电商第一单</span>
+        </a>
+        <a class="grid gap-2 rounded-[14px] border border-line bg-cream/65 px-4 py-4 no-underline transition hover:translate-x-1 hover:border-ink/40 hover:bg-paper/60 md:grid-cols-[118px_minmax(0,1fr)_auto] md:items-center md:px-5" href="https://mp.weixin.qq.com/s/E7xJtLkFumMuetTay7YNlg" target="_blank" rel="noreferrer">
+          <span class="text-sm tabular-nums text-ink/60">2026-04-23</span>
+          <span class="text-[clamp(17px,2vw,20px)] leading-snug">99% 的人看完 GPT-IMAGE-2 都在感叹，1% 的人在找钱</span>
+        </a>
+        <a class="grid gap-2 rounded-[14px] border border-line bg-cream/65 px-4 py-4 no-underline transition hover:translate-x-1 hover:border-ink/40 hover:bg-paper/60 md:grid-cols-[118px_minmax(0,1fr)_auto] md:items-center md:px-5" href="https://mp.weixin.qq.com/s/pjgP78uGOFmkWS_PKOjdzg" target="_blank" rel="noreferrer">
+          <span class="text-sm tabular-nums text-ink/60">2026-04-17</span>
+          <span class="text-[clamp(17px,2vw,20px)] leading-snug">AI写歌，花了 10 美元，赚了 0.14 元，但我还在继续</span>
+        </a>
+        <a class="grid gap-2 rounded-[14px] border border-line bg-cream/65 px-4 py-4 no-underline transition hover:translate-x-1 hover:border-ink/40 hover:bg-paper/60 md:grid-cols-[118px_minmax(0,1fr)_auto] md:items-center md:px-5" href="https://mp.weixin.qq.com/s/Co4pNpdv6idCDXIozA4AMA" target="_blank" rel="noreferrer">
+          <span class="text-sm tabular-nums text-ink/60">2026-04-14</span>
+          <span class="text-[clamp(17px,2vw,20px)] leading-snug">AI 写歌比 AI 写小说容易？我来帮你跑这个实验</span>
+        </a>
+        <a class="grid gap-2 rounded-[14px] border border-line bg-cream/65 px-4 py-4 no-underline transition hover:translate-x-1 hover:border-ink/40 hover:bg-paper/60 md:grid-cols-[118px_minmax(0,1fr)_auto] md:items-center md:px-5" href="https://mp.weixin.qq.com/s/dXf6WPpzNR0WaDWCjp9-Nw" target="_blank" rel="noreferrer">
+          <span class="text-sm tabular-nums text-ink/60">2026-04-03</span>
+          <span class="text-[clamp(17px,2vw,20px)] leading-snug">3月份复盘：普通人做自媒体，最值钱的其实是“你自己”</span>
+        </a>
+        <a class="grid gap-2 rounded-[14px] border border-line bg-cream/65 px-4 py-4 no-underline transition hover:translate-x-1 hover:border-ink/40 hover:bg-paper/60 md:grid-cols-[118px_minmax(0,1fr)_auto] md:items-center md:px-5" href="https://mp.weixin.qq.com/s/weMfNNdmtR_Rkk8GS1dJDQ" target="_blank" rel="noreferrer">
+          <span class="text-sm tabular-nums text-ink/60">2026-03-31</span>
+          <span class="text-[clamp(17px,2vw,20px)] leading-snug">什么是_提示词开源_？从三款AI语音输入法说起</span>
+        </a>
+        <a class="grid gap-2 rounded-[14px] border border-line bg-cream/65 px-4 py-4 no-underline transition hover:translate-x-1 hover:border-ink/40 hover:bg-paper/60 md:grid-cols-[118px_minmax(0,1fr)_auto] md:items-center md:px-5" href="https://mp.weixin.qq.com/s/VKs8Eon_SY0xy4IL3s2BIQ" target="_blank" rel="noreferrer">
+          <span class="text-sm tabular-nums text-ink/60">2026-03-30</span>
+          <span class="text-[clamp(17px,2vw,20px)] leading-snug">用龙虾帮我记账，账单里翻出一笔忘了的奖金</span>
+        </a>
+        <a class="grid gap-2 rounded-[14px] border border-line bg-cream/65 px-4 py-4 no-underline transition hover:translate-x-1 hover:border-ink/40 hover:bg-paper/60 md:grid-cols-[118px_minmax(0,1fr)_auto] md:items-center md:px-5" href="https://mp.weixin.qq.com/s/v8srSazCi-bjsJdnGyx3_g" target="_blank" rel="noreferrer">
+          <span class="text-sm tabular-nums text-ink/60">2026-03-23</span>
+          <span class="text-[clamp(17px,2vw,20px)] leading-snug">我在微信养了一只龙虾，我希望它能帮我实现数字永生</span>
+        </a>
+        <a class="grid gap-2 rounded-[14px] border border-line bg-cream/65 px-4 py-4 no-underline transition hover:translate-x-1 hover:border-ink/40 hover:bg-paper/60 md:grid-cols-[118px_minmax(0,1fr)_auto] md:items-center md:px-5" href="https://mp.weixin.qq.com/s/yiLe05o2dstzwvIY3hldHw" target="_blank" rel="noreferrer">
+          <span class="text-sm tabular-nums text-ink/60">2026-03-21</span>
+          <span class="text-[clamp(17px,2vw,20px)] leading-snug">一个前端工程师和 AI 之父，同时得了「不写代码焦虑症」</span>
+        </a>
+        <a class="grid gap-2 rounded-[14px] border border-line bg-cream/65 px-4 py-4 no-underline transition hover:translate-x-1 hover:border-ink/40 hover:bg-paper/60 md:grid-cols-[118px_minmax(0,1fr)_auto] md:items-center md:px-5" href="https://mp.weixin.qq.com/s/xsgPv6jRWwVn6Ea1TEC_4Q" target="_blank" rel="noreferrer">
+          <span class="text-sm tabular-nums text-ink/60">2026-03-19</span>
+          <span class="text-[clamp(17px,2vw,20px)] leading-snug">用 Claude Code 帮我写公众号赚到钱后，我把这套流程开源了</span>
+        </a>
+        <a class="grid gap-2 rounded-[14px] border border-line bg-cream/65 px-4 py-4 no-underline transition hover:translate-x-1 hover:border-ink/40 hover:bg-paper/60 md:grid-cols-[118px_minmax(0,1fr)_auto] md:items-center md:px-5" href="https://mp.weixin.qq.com/s/jO09LdPCn7NPAID3tQouNQ" target="_blank" rel="noreferrer">
+          <span class="text-sm tabular-nums text-ink/60">2026-03-19</span>
+          <span class="text-[clamp(17px,2vw,20px)] leading-snug">AI 不会替你赚钱：Dan Koe 谈 2026 年一人企业的真正打法</span>
+        </a>
+        <a class="grid gap-2 rounded-[14px] border border-line bg-cream/65 px-4 py-4 no-underline transition hover:translate-x-1 hover:border-ink/40 hover:bg-paper/60 md:grid-cols-[118px_minmax(0,1fr)_auto] md:items-center md:px-5" href="http://mp.weixin.qq.com/s?__biz=MzU3MTcxOTg4OQ==&amp;mid=2247484567&amp;idx=1&amp;sn=2059491a49596890b0a487fe8193c747&amp;chksm=fcdaad29cbad243fa4f2dc71e4a2c8c0982cc5babadf3d078ae437e275569ec5b74ac4316304" target="_blank" rel="noreferrer">
+          <span class="text-sm tabular-nums text-ink/60">2026-03-15</span>
+          <span class="text-[clamp(17px,2vw,20px)] leading-snug">AI 写小说不赚钱，但 AI 写公众号赚钱了</span>
+        </a>
+        <a class="grid gap-2 rounded-[14px] border border-line bg-cream/65 px-4 py-4 no-underline transition hover:translate-x-1 hover:border-ink/40 hover:bg-paper/60 md:grid-cols-[118px_minmax(0,1fr)_auto] md:items-center md:px-5" href="http://mp.weixin.qq.com/s?__biz=MzU3MTcxOTg4OQ==&amp;mid=2247484531&amp;idx=1&amp;sn=a2810c215be915866c0e28f106e172a7&amp;chksm=fcdaadcdcbad24db58f01b34e6ced3d229690ca076a656ac0639eb57ed5cd02ac4ff70542c8e" target="_blank" rel="noreferrer">
+          <span class="text-sm tabular-nums text-ink/60">2026-03-11</span>
+          <span class="text-[clamp(17px,2vw,20px)] leading-snug">我用 AI 生图发了几十期小红书，停更之后反而赚到了钱</span>
+        </a>
+        <a class="grid gap-2 rounded-[14px] border border-line bg-cream/65 px-4 py-4 no-underline transition hover:translate-x-1 hover:border-ink/40 hover:bg-paper/60 md:grid-cols-[118px_minmax(0,1fr)_auto] md:items-center md:px-5" href="http://mp.weixin.qq.com/s?__biz=MzU3MTcxOTg4OQ==&amp;mid=2247484499&amp;idx=1&amp;sn=ed9f8477b149dc26b4f140f3548c9822&amp;chksm=fcdaadedcbad24fb637afe4054191dce87a9a6a51abcaee820ef0c729f8f2990ea1bf396b71b" target="_blank" rel="noreferrer">
+          <span class="text-sm tabular-nums text-ink/60">2026-03-08</span>
+          <span class="text-[clamp(17px,2vw,20px)] leading-snug">不出意外的，又出意外了。第二次投稿七猫，又被拒了。</span>
+        </a>
+        <a class="grid gap-2 rounded-[14px] border border-line bg-cream/65 px-4 py-4 no-underline transition hover:translate-x-1 hover:border-ink/40 hover:bg-paper/60 md:grid-cols-[118px_minmax(0,1fr)_auto] md:items-center md:px-5" href="http://mp.weixin.qq.com/s?__biz=MzU3MTcxOTg4OQ==&amp;mid=2247484478&amp;idx=1&amp;sn=3de6e52138b3e02e8c0b45caf3f47cc7&amp;chksm=fcdaad80cbad2496403a8800c0954fbfe2c9e74110b0af6dd1133e3680d6904aff2123d8c106" target="_blank" rel="noreferrer">
+          <span class="text-sm tabular-nums text-ink/60">2026-03-05</span>
+          <span class="text-[clamp(17px,2vw,20px)] leading-snug">用 AI 写小说被拒稿后：朋友看完第一稿叫好，第二稿崩溃，第三稿我没敢给他看</span>
+        </a>
+        <a class="grid gap-2 rounded-[14px] border border-line bg-cream/65 px-4 py-4 no-underline transition hover:translate-x-1 hover:border-ink/40 hover:bg-paper/60 md:grid-cols-[118px_minmax(0,1fr)_auto] md:items-center md:px-5" href="http://mp.weixin.qq.com/s?__biz=MzU3MTcxOTg4OQ==&amp;mid=2247484438&amp;idx=1&amp;sn=f2f6dde9baf3d2b024f0a44063b97abe&amp;chksm=fcdaada8cbad24be592bc73cfb9666cb00eeed842a8f64cbcc2a7db836728f7f9cd87729c8a0" target="_blank" rel="noreferrer">
+          <span class="text-sm tabular-nums text-ink/60">2026-03-02</span>
+          <span class="text-[clamp(17px,2vw,20px)] leading-snug">我用 Claude Code 写了一部 5 万字小说，投稿七猫，被拒了</span>
+        </a>
+        <a class="grid gap-2 rounded-[14px] border border-line bg-cream/65 px-4 py-4 no-underline transition hover:translate-x-1 hover:border-ink/40 hover:bg-paper/60 md:grid-cols-[118px_minmax(0,1fr)_auto] md:items-center md:px-5" href="http://mp.weixin.qq.com/s?__biz=MzU3MTcxOTg4OQ==&amp;mid=2247484420&amp;idx=1&amp;sn=9db470780ba4dbc468385f0c6b065f6e&amp;chksm=fcdaadbacbad24ac244287293c779e51bc05fedc4389d195d25058b701eefd155ca703ae463d" target="_blank" rel="noreferrer">
+          <span class="text-sm tabular-nums text-ink/60">2026-03-01</span>
+          <span class="text-[clamp(17px,2vw,20px)] leading-snug">Claude Code 负责人 Boris Cherny：编程已被解决，我从 11 月起没手写过一行代码</span>
+        </a>
+        <a class="grid gap-2 rounded-[14px] border border-line bg-cream/65 px-4 py-4 no-underline transition hover:translate-x-1 hover:border-ink/40 hover:bg-paper/60 md:grid-cols-[118px_minmax(0,1fr)_auto] md:items-center md:px-5" href="http://mp.weixin.qq.com/s?__biz=MzU3MTcxOTg4OQ==&amp;mid=2247484401&amp;idx=1&amp;sn=dd264c8000fe87acff0cfc682479e079&amp;chksm=fcdaaa4fcbad23597d234d87c64ed205c25a30ca78a1a6c486231951a5de349c730f089e0675" target="_blank" rel="noreferrer">
+          <span class="text-sm tabular-nums text-ink/60">2026-02-27</span>
+          <span class="text-[clamp(17px,2vw,20px)] leading-snug">硅谷顶级开发者都在用的&quot;乐高积木法&quot;</span>
+        </a>
+        <a class="grid gap-2 rounded-[14px] border border-line bg-cream/65 px-4 py-4 no-underline transition hover:translate-x-1 hover:border-ink/40 hover:bg-paper/60 md:grid-cols-[118px_minmax(0,1fr)_auto] md:items-center md:px-5" href="http://mp.weixin.qq.com/s?__biz=MzU3MTcxOTg4OQ==&amp;mid=2247484392&amp;idx=1&amp;sn=c2a463f479e9625c93d32608c5ffb8ef&amp;chksm=fcdaaa56cbad2340842128a1d312e163c6231250de77c8704ed5c9dc810096cb06226152a7e9" target="_blank" rel="noreferrer">
+          <span class="text-sm tabular-nums text-ink/60">2026-02-26</span>
+          <span class="text-[clamp(17px,2vw,20px)] leading-snug">NotebookLM 指南 | 7 个浏览器插件 + 6 大场景 + 1 套组合拳，从入门到上瘾</span>
+        </a>
+        <a class="grid gap-2 rounded-[14px] border border-line bg-cream/65 px-4 py-4 no-underline transition hover:translate-x-1 hover:border-ink/40 hover:bg-paper/60 md:grid-cols-[118px_minmax(0,1fr)_auto] md:items-center md:px-5" href="http://mp.weixin.qq.com/s?__biz=MzU3MTcxOTg4OQ==&amp;mid=2247484383&amp;idx=1&amp;sn=f629c09ace5c280ddeb568554e3387ec&amp;chksm=fcdaaa61cbad23776cc507da06857084dd26dfd460736e7b9b51f6ffe5e4fc393dcad367bf9f" target="_blank" rel="noreferrer">
+          <span class="text-sm tabular-nums text-ink/60">2026-02-25</span>
+          <span class="text-[clamp(17px,2vw,20px)] leading-snug">Every CEO Dan Shipper：15个人，5款产品，0行手写代码，7位数营收</span>
+        </a>
+        <a class="grid gap-2 rounded-[14px] border border-line bg-cream/65 px-4 py-4 no-underline transition hover:translate-x-1 hover:border-ink/40 hover:bg-paper/60 md:grid-cols-[118px_minmax(0,1fr)_auto] md:items-center md:px-5" href="http://mp.weixin.qq.com/s?__biz=MzU3MTcxOTg4OQ==&amp;mid=2247484360&amp;idx=1&amp;sn=95046ae224e27ac841ad6a0ab04efa57&amp;chksm=fcdaaa76cbad2360dbb487b18c316af1a40e5270e5cf3fd3e81e247489daf90673b38292f9dc" target="_blank" rel="noreferrer">
+          <span class="text-sm tabular-nums text-ink/60">2026-02-24</span>
+          <span class="text-[clamp(17px,2vw,20px)] leading-snug">AI 让写代码变成白菜价，程序员还剩下什么？</span>
+        </a>
+        <a class="grid gap-2 rounded-[14px] border border-line bg-cream/65 px-4 py-4 no-underline transition hover:translate-x-1 hover:border-ink/40 hover:bg-paper/60 md:grid-cols-[118px_minmax(0,1fr)_auto] md:items-center md:px-5" href="http://mp.weixin.qq.com/s?__biz=MzU3MTcxOTg4OQ==&amp;mid=2247484336&amp;idx=1&amp;sn=af62aea40a0de51ceffb405a6ee5f410&amp;chksm=fcdaaa0ecbad2318090bbd66c88d5dfcf1b2e88e4f3982c7ee148da034dea8c8fd3759265c8c" target="_blank" rel="noreferrer">
+          <span class="text-sm tabular-nums text-ink/60">2026-02-05</span>
+          <span class="text-[clamp(17px,2vw,20px)] leading-snug">OpenAI 推桌面版 CodeX：把 AI 的工作变成更好跟进</span>
+        </a>
+        <a class="grid gap-2 rounded-[14px] border border-line bg-cream/65 px-4 py-4 no-underline transition hover:translate-x-1 hover:border-ink/40 hover:bg-paper/60 md:grid-cols-[118px_minmax(0,1fr)_auto] md:items-center md:px-5" href="http://mp.weixin.qq.com/s?__biz=MzU3MTcxOTg4OQ==&amp;mid=2247484326&amp;idx=1&amp;sn=f055bf9bcaf34e642c454291d4bffef0&amp;chksm=fcdaaa18cbad230e0ede6ba857a5751490be7f04c7f01c39cc23c2b6dba749e39960340410f3" target="_blank" rel="noreferrer">
+          <span class="text-sm tabular-nums text-ink/60">2026-01-31</span>
+          <span class="text-[clamp(17px,2vw,20px)] leading-snug">我装了十几次 Claude Code，才总结出这套「一次成功」的安装方案</span>
+        </a>
+        <a class="grid gap-2 rounded-[14px] border border-line bg-cream/65 px-4 py-4 no-underline transition hover:translate-x-1 hover:border-ink/40 hover:bg-paper/60 md:grid-cols-[118px_minmax(0,1fr)_auto] md:items-center md:px-5" href="http://mp.weixin.qq.com/s?__biz=MzU3MTcxOTg4OQ==&amp;mid=2247484247&amp;idx=1&amp;sn=b89c3e57aed928c35da6f23a7384aa9b&amp;chksm=fcdaaae9cbad23ff4d05aa0da1949d9b9a61328317d0bc6b356111c39230922500baf03dfbc8" target="_blank" rel="noreferrer">
+          <span class="text-sm tabular-nums text-ink/60">2026-01-20</span>
+          <span class="text-[clamp(17px,2vw,20px)] leading-snug">用一个登录案例，体验 agent-browser 的完整流程</span>
+        </a>
+        <a class="grid gap-2 rounded-[14px] border border-line bg-cream/65 px-4 py-4 no-underline transition hover:translate-x-1 hover:border-ink/40 hover:bg-paper/60 md:grid-cols-[118px_minmax(0,1fr)_auto] md:items-center md:px-5" href="http://mp.weixin.qq.com/s?__biz=MzU3MTcxOTg4OQ==&amp;mid=2247483998&amp;idx=1&amp;sn=f62da697cb361d5a8aa305d0583433f4&amp;chksm=fcdaabe0cbad22f6157fc03c5a945298f8ce04d0478a25739c022dcbb47483d2dd351e75d6c0" target="_blank" rel="noreferrer">
+          <span class="text-sm tabular-nums text-ink/60">2026-01-11</span>
+          <span class="text-[clamp(17px,2vw,20px)] leading-snug">Claude Skills入门：5分钟让AI学会你的工作流</span>
+        </a>
+      </div>
+    </section>
+
+    <section id="projects" class="py-14 md:py-[72px]" aria-labelledby="projects-title">
+      <div class="mb-6 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+        <h2 id="projects-title" class="text-[clamp(34px,5vw,56px)] font-semibold leading-none tracking-[-0.03em]">开源项目</h2>
+        <p class="max-w-md text-sm leading-6 text-ink/60">这些项目不是作品集装饰，而是文章背后的实验场：提示词、小说创作、公众号工作流和 AI 音乐 MV。</p>
+      </div>
+      <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        <a class="min-h-56 rounded-2xl border border-line bg-cream/70 p-5 no-underline transition hover:-translate-y-1 hover:border-ink/40" href="https://github.com/YuppyChen/yuppy-prompts" target="_blank" rel="noreferrer">
+          <span class="mb-9 grid size-8 place-items-center rounded-full border border-line bg-paper text-sm text-ink/60">01</span>
+          <h3 class="text-xl font-semibold leading-tight tracking-[-0.02em]">提示词仓库</h3>
+          <p class="mt-3 text-sm leading-6 text-ink/60">个人整理的提示词仓库，把可复用的 AI 工作流沉淀下来。</p>
+        </a>
+        <a class="min-h-56 rounded-2xl border border-line bg-cream/70 p-5 no-underline transition hover:-translate-y-1 hover:border-ink/40" href="https://github.com/YuppyChen/novelist-test" target="_blank" rel="noreferrer">
+          <span class="mb-9 grid size-8 place-items-center rounded-full border border-line bg-paper text-sm text-ink/60">02</span>
+          <h3 class="text-xl font-semibold leading-tight tracking-[-0.02em]">AI 中文小说创作工作站</h3>
+          <p class="mt-3 text-sm leading-6 text-ink/60">用 AI 写长篇中文小说，验证从设定到成稿的完整链路。</p>
+        </a>
+        <a class="min-h-56 rounded-2xl border border-line bg-cream/70 p-5 no-underline transition hover:-translate-y-1 hover:border-ink/40" href="https://github.com/YuppyChen/ai-wechat" target="_blank" rel="noreferrer">
+          <span class="mb-9 grid size-8 place-items-center rounded-full border border-line bg-paper text-sm text-ink/60">03</span>
+          <h3 class="text-xl font-semibold leading-tight tracking-[-0.02em]">AI 写公众号工作流</h3>
+          <p class="mt-3 text-sm leading-6 text-ink/60">把选题、草稿、排版和发布流程拆成可执行的自动化链路。</p>
+        </a>
+        <a class="min-h-56 rounded-2xl border border-line bg-cream/70 p-5 no-underline transition hover:-translate-y-1 hover:border-ink/40" href="https://github.com/YuppyChen/AI-suno-mv" target="_blank" rel="noreferrer">
+          <span class="mb-9 grid size-8 place-items-center rounded-full border border-line bg-paper text-sm text-ink/60">04</span>
+          <h3 class="text-xl font-semibold leading-tight tracking-[-0.02em]">AI 音乐 MV 制作</h3>
+          <p class="mt-3 text-sm leading-6 text-ink/60">围绕 Suno 和视频生成，探索低成本音乐内容生产。</p>
+        </a>
+      </div>
+    </section>
+
+    <section id="contact" class="py-14 md:py-[72px]" aria-labelledby="contact-title">
+      <div class="grid gap-8 rounded-[28px] border border-line bg-paper p-6 md:grid-cols-[1fr_auto] md:items-center md:p-11">
+        <div>
+          <h2 id="contact-title" class="text-[clamp(34px,5vw,56px)] font-semibold leading-none tracking-[-0.03em]">联系我</h2>
+          <p class="mt-5 max-w-2xl text-lg leading-8 text-ink/80">如果你也在用 AI 做内容、做工具、做副业，或者只是想交流具体问题，可以从邮箱、GitHub 或公众号找到我。</p>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a class="rounded-md bg-ink px-5 py-2.5 text-paper no-underline shadow-insetSoft transition hover:opacity-80 focus:shadow-focusSoft" href="mailto:371881954@qq.com">发邮件</a>
+            <a class="rounded-md border border-ink/40 px-5 py-2.5 no-underline transition hover:bg-cream hover:opacity-80 focus:shadow-focusSoft" href="https://github.com/YuppyChen" target="_blank" rel="noreferrer">GitHub / YuppyChen</a>
+          </div>
+        </div>
+        <div class="w-[150px] rounded-[18px] border border-line bg-cream p-3 md:w-[170px]">
+          <img class="block w-full rounded-xl border border-line" src="https://blog.yongpeng.me/%E5%8B%87%E9%B9%8F%E5%86%8D%E7%94%A8%20AI-%E4%BA%8C%E7%BB%B4%E7%A0%81.jpg" alt="勇鹏在用 AI 公众号二维码" />
+          <span class="mt-2 block text-center text-xs text-ink/60">公众号：勇鹏在用 AI</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="mx-auto w-[min(1180px,calc(100%_-_24px))] pb-12 pt-4 text-sm text-ink/60">
+    <span>© 2026 勇鹏在用 AI 的博客。做值得写的事，写值得读的东西。</span>
+  </footer>
+</body>
+</html>

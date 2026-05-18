@@ -1,0 +1,35 @@
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Build output
+dist/
+build/
+coverage/
+.cache/
+
+# Cloudflare / Wrangler
+.wrangler/
+wrangler.toml.bak
+
+# Editor / IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+archive/
+勇鹏在用 AI/
+
+.agents/
