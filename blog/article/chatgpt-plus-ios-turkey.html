@@ -19,10 +19,72 @@
       max-width: 100%;
       height: auto
     }
+
+    .article-nav {
+      margin: 0 0 20px;
+    }
+
+    .back-home-link {
+      display: inline-block;
+      padding: 8px 14px;
+      border: 1px solid rgba(198, 110, 73, 0.35);
+      border-radius: 999px;
+      color: rgb(198, 110, 73);
+      text-decoration: none;
+      font-size: 14px;
+      line-height: 1.2;
+      transition: all 0.2s ease;
+      background: rgba(198, 110, 73, 0.04);
+    }
+
+    .back-home-link:hover {
+      background: rgba(198, 110, 73, 0.1);
+      border-color: rgba(198, 110, 73, 0.55);
+    }
+
+    .wx-footer {
+      margin: 56px 0 24px;
+      padding: 28px 22px;
+      border: 1px solid rgba(198, 110, 73, 0.22);
+      border-radius: 12px;
+      background: linear-gradient(180deg, rgba(198, 110, 73, 0.08), rgba(198, 110, 73, 0.02));
+      text-align: center;
+    }
+
+    .wx-footer h3 {
+      margin: 0;
+      color: rgb(63, 63, 63);
+      font-size: 20px;
+      line-height: 1.4;
+    }
+
+    .wx-footer p {
+      margin: 10px 0 18px;
+      color: rgba(63, 63, 63, 0.8);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .wx-footer img {
+      width: min(280px, 86vw);
+      border-radius: 12px;
+      border: 1px solid rgba(198, 110, 73, 0.25);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .wx-footer .wx-caption {
+      margin: 10px 0 0;
+      color: rgba(63, 63, 63, 0.75);
+      font-size: 13px;
+      letter-spacing: 0.04em;
+    }
   </style>
 </head>
 
 <body>
+  <nav class="article-nav">
+    <a class="back-home-link" href="../index.html">← 返回首页</a>
+  </nav>
   <h1>被封号坑惨了？我用这个方法订阅 ChatGPT Plus，稳了快一个月</h1>
   <section
     style="font-family: -apple-system-font,BlinkMacSystemFont, Helvetica Neue, PingFang SC, Hiragino Sans GB , Microsoft YaHei UI , Microsoft YaHei ,Arial,sans-serif;font-size: 16px;line-height: 1.75;text-align: left;">
@@ -354,6 +416,14 @@
       <strong
         style="font-weight: 600;color: rgb(63, 63, 63);background: linear-gradient(to top, rgb(255, 245, 132) 35%, transparent 35%);"><span
           leaf="">文章里提到的所有链接都是我自己用过的资源，不是广告，风险自行判断。</span></strong></p>
+  </section>
+  <section class="wx-footer">
+    <a class="back-home-link" href="../index.html">← 返回首页</a>
+    <h3>关注公众号：勇鹏在用 AI</h3>
+    <p>扫码关注，获取更多 AI 实战内容与最新文章更新。</p>
+    <img src="https://blog.yongpeng.me/%E5%8B%87%E9%B9%8F%E5%86%8D%E7%94%A8%20AI-%E4%BA%8C%E7%BB%B4%E7%A0%81.jpg"
+      alt="勇鹏在用 AI 公众号二维码" />
+    <p class="wx-caption">公众号二维码</p>
   </section>
   <p style="display: none;"><mp-style-type data-value="10000"></mp-style-type></p>
 </body>
