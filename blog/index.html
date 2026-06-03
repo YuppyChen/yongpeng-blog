@@ -2,12 +2,9 @@
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="description" content="勇鹏在用 AI 的博客：做值得写的事，写值得读的东西。" />
   <title>勇鹏在用 AI 的博客</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
   <style>
     :root {
       --primary: #b8894e;
@@ -15,10 +12,15 @@
       --tertiary: #374151;
       --neutral: #121212;
       --surface: #121212;
+      --surface-raised: #191715;
+      --surface-soft: rgba(242, 234, 220, 0.045);
       --muted: rgba(242, 234, 220, 0.66);
+      --quiet: rgba(242, 234, 220, 0.46);
       --faint: rgba(242, 234, 220, 0.12);
       --fainter: rgba(242, 234, 220, 0.07);
       --max: 1180px;
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      --font-serif: "Songti SC", "STSong", "Noto Serif CJK SC", "Source Han Serif SC", serif;
     }
 
     * { box-sizing: border-box; }
@@ -28,30 +30,17 @@
     body {
       min-height: 100vh;
       margin: 0;
+      padding-inline: env(safe-area-inset-left) env(safe-area-inset-right);
       color: var(--secondary);
       background:
-        radial-gradient(circle at 82% 8%, rgba(184, 137, 78, 0.14), transparent 28rem),
-        radial-gradient(circle at 14% 26%, rgba(55, 65, 81, 0.36), transparent 34rem),
-        linear-gradient(180deg, #171717 0%, var(--neutral) 32%, #0f0f0f 100%);
-      font-family: "Inter", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+        radial-gradient(circle at 78% 0%, rgba(184, 137, 78, 0.12), transparent 30rem),
+        linear-gradient(180deg, #151412 0%, var(--neutral) 45%, #0e0d0c 100%);
+      font-family: var(--font-sans);
       font-size: 16px;
       line-height: 1.5;
       overflow-x: hidden;
       text-rendering: optimizeLegibility;
       -webkit-font-smoothing: antialiased;
-    }
-
-    body::before {
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      pointer-events: none;
-      content: "";
-      background-image:
-        linear-gradient(rgba(242, 234, 220, 0.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(242, 234, 220, 0.025) 1px, transparent 1px);
-      background-size: 72px 72px;
-      mask-image: linear-gradient(to bottom, black 0%, transparent 78%);
     }
 
     a { color: inherit; text-decoration: none; }
@@ -76,7 +65,7 @@
       display: inline-flex;
       align-items: baseline;
       gap: 10px;
-      font-family: "Playfair Display", serif;
+      font-family: var(--font-serif);
       font-size: 25px;
       letter-spacing: -0.02em;
     }
@@ -89,8 +78,7 @@
       gap: 22px;
       color: var(--muted);
       font-size: 12px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
+      letter-spacing: 0.08em;
     }
 
     .nav-links a { transition: color 180ms ease; }
@@ -98,24 +86,24 @@
 
     .nav-cta {
       min-height: 44px;
-      min-width: 120px;
+      min-width: 108px;
       display: inline-grid;
       place-items: center;
       padding: 8px 16px;
-      border: 1px solid transparent;
+      border: 1px solid rgba(242, 234, 220, 0.18);
       border-radius: 4px;
-      color: var(--neutral);
-      background: var(--secondary);
+      color: var(--secondary);
+      background: transparent;
       letter-spacing: 0;
       text-transform: none;
     }
 
     .hero {
       display: grid;
-      grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.72fr);
-      gap: clamp(40px, 7vw, 96px);
-      align-items: end;
-      padding: clamp(76px, 12vw, 132px) 0 96px;
+      grid-template-columns: minmax(0, 0.94fr) minmax(320px, 0.74fr);
+      gap: clamp(36px, 6vw, 76px);
+      align-items: center;
+      padding: clamp(70px, 9vw, 112px) 0 76px;
     }
 
     .eyebrow,
@@ -128,8 +116,7 @@
       color: var(--muted);
       font-size: 12px;
       line-height: 16px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
+      letter-spacing: 0.1em;
       font-variant-caps: all-small-caps;
     }
 
@@ -154,30 +141,31 @@
 
     h1 {
       max-width: 820px;
-      font-family: "Playfair Display", serif;
-      font-size: clamp(58px, 9vw, 104px);
+      font-family: var(--font-serif);
+      font-size: clamp(46px, 6.6vw, 78px);
       font-weight: 400;
-      line-height: 0.98;
-      letter-spacing: -0.04em;
+      line-height: 1.04;
+      letter-spacing: -0.025em;
+      overflow-wrap: anywhere;
+      text-wrap: balance;
     }
 
     h1 em { color: var(--primary); font-style: italic; }
 
     .hero-copy {
       max-width: 690px;
-      margin-top: 30px;
-      color: rgba(242, 234, 220, 0.8);
-      font-family: "Playfair Display", serif;
-      font-size: clamp(22px, 2.3vw, 28px);
-      font-weight: 300;
-      line-height: 1.5;
+      margin-top: 24px;
+      color: rgba(242, 234, 220, 0.78);
+      font-size: clamp(17px, 1.6vw, 21px);
+      line-height: 1.78;
+      text-wrap: pretty;
     }
 
     .button-row {
       display: flex;
       flex-wrap: wrap;
       gap: 14px;
-      margin-top: 38px;
+      margin-top: 32px;
     }
 
     .button {
@@ -189,7 +177,7 @@
       border: 1px solid rgba(242, 234, 220, 0.12);
       border-radius: 4px;
       color: var(--secondary);
-      font-size: 16px;
+      font-size: 15px;
       transition: background 180ms ease, border-color 180ms ease, color 180ms ease;
     }
 
@@ -204,25 +192,24 @@
 
     .portrait-panel {
       position: relative;
-      min-height: 520px;
+      min-height: 390px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       padding: 28px;
       overflow: hidden;
-      border: 1px solid var(--tertiary);
+      border: 1px solid rgba(184, 137, 78, 0.34);
       border-radius: 8px;
       background:
-        linear-gradient(145deg, rgba(242, 234, 220, 0.08), transparent 45%),
-        linear-gradient(180deg, rgba(184, 137, 78, 0.18), rgba(18, 18, 18, 0.4)),
-        #171717;
+        linear-gradient(145deg, rgba(184, 137, 78, 0.13), transparent 46%),
+        var(--surface-raised);
     }
 
     .portrait-panel::before {
       position: absolute;
-      inset: 18px;
+      inset: 16px;
       content: "";
-      border: 1px solid rgba(242, 234, 220, 0.1);
+      border: 1px solid rgba(242, 234, 220, 0.08);
     }
 
     .portrait-panel::after {
@@ -242,11 +229,13 @@
 
     .featured-title {
       max-width: 360px;
-      font-family: "Playfair Display", serif;
-      font-size: clamp(36px, 4vw, 52px);
+      font-family: var(--font-serif);
+      font-size: clamp(32px, 3.2vw, 44px);
       font-weight: 400;
-      line-height: 1.1;
-      letter-spacing: -0.02em;
+      line-height: 1.18;
+      letter-spacing: -0.01em;
+      overflow-wrap: anywhere;
+      text-wrap: balance;
     }
 
     .open-link {
@@ -257,82 +246,141 @@
       font-size: 14px;
     }
 
-    .section { padding: 88px 0; border-top: 1px solid var(--faint); }
+    .section { padding: 76px 0; border-top: 1px solid var(--faint); }
 
     .section-head {
       display: grid;
       grid-template-columns: minmax(0, 0.72fr) minmax(280px, 0.42fr);
       gap: 40px;
       align-items: end;
-      margin-bottom: 38px;
+      margin-bottom: 30px;
     }
 
     .section h2 {
-      margin-top: 16px;
-      font-family: "Playfair Display", serif;
-      font-size: clamp(42px, 6vw, 68px);
+      margin-top: 12px;
+      font-family: var(--font-serif);
+      font-size: clamp(34px, 4.6vw, 54px);
       font-weight: 400;
-      line-height: 1.08;
-      letter-spacing: -0.03em;
+      line-height: 1.14;
+      letter-spacing: -0.015em;
     }
 
     .section-intro { color: var(--muted); font-size: 15px; line-height: 1.7; }
+
+    .start-here {
+      display: grid;
+      grid-template-columns: 128px minmax(0, 1fr);
+      gap: 20px;
+      align-items: baseline;
+      padding: 18px 20px;
+      border: 1px solid var(--faint);
+      border-radius: 8px;
+      background: var(--surface-soft);
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+
+    .start-here-title {
+      color: var(--primary);
+      font-size: 12px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-variant-caps: all-small-caps;
+    }
+
+    .start-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+    }
+
+    .start-links a {
+      color: rgba(242, 234, 220, 0.82);
+      text-decoration: underline;
+      text-decoration-color: rgba(184, 137, 78, 0.42);
+      text-underline-offset: 4px;
+      transition: color 180ms ease, text-decoration-color 180ms ease;
+    }
+
+    .start-links a:hover {
+      color: var(--secondary);
+      text-decoration-color: var(--primary);
+    }
 
     .article-list { border-top: 1px solid var(--faint); }
 
     .article-row {
       display: grid;
-      grid-template-columns: 56px 128px minmax(0, 1fr) 36px;
-      gap: 20px;
-      align-items: baseline;
-      padding: 20px 0;
+      grid-template-columns: 86px 116px minmax(0, 1fr) 32px;
+      gap: 16px;
+      align-items: center;
+      padding: 17px 0;
       border-bottom: 1px solid var(--faint);
-      transition: color 180ms ease, padding-left 180ms ease, border-color 180ms ease;
+      transition: color 180ms ease, border-color 180ms ease, transform 180ms ease;
     }
 
     .article-row:hover {
-      padding-left: 10px;
+      transform: translateX(10px);
       border-color: rgba(184, 137, 78, 0.55);
       color: var(--primary);
     }
 
     .article-title {
       color: var(--secondary);
-      font-family: "Playfair Display", "PingFang SC", serif;
-      font-size: clamp(19px, 2vw, 27px);
-      line-height: 1.22;
-      letter-spacing: -0.02em;
+      font-family: var(--font-sans);
+      font-size: clamp(17px, 1.5vw, 21px);
+      font-weight: 400;
+      line-height: 1.45;
+      letter-spacing: 0;
+      text-wrap: pretty;
     }
 
     .article-row:hover .article-title { color: var(--primary); }
     .article-arrow { color: var(--muted); text-align: right; }
     .is-featured .article-title { color: #fff8eb; }
 
+    .article-index {
+      width: fit-content;
+      min-width: 58px;
+      padding: 5px 9px;
+      border: 1px solid rgba(184, 137, 78, 0.32);
+      border-radius: 999px;
+      color: rgba(242, 234, 220, 0.78);
+      background: rgba(184, 137, 78, 0.08);
+      letter-spacing: 0.04em;
+      text-align: center;
+    }
+
     .project-grid {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 1px;
-      background: var(--faint);
-      border: 1px solid var(--faint);
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
     }
 
     .project-card {
-      min-height: 286px;
+      min-height: 240px;
       display: flex;
       flex-direction: column;
       padding: 24px;
-      background: rgba(18, 18, 18, 0.92);
-      transition: background 180ms ease, color 180ms ease;
+      border: 1px solid var(--faint);
+      border-radius: 8px;
+      background: rgba(242, 234, 220, 0.035);
+      transition: background 180ms ease, border-color 180ms ease;
     }
 
-    .project-card:hover { background: rgba(184, 137, 78, 0.12); }
+    .project-card:hover {
+      border-color: rgba(184, 137, 78, 0.42);
+      background: rgba(184, 137, 78, 0.08);
+    }
+
     .project-card h3 {
-      margin-top: 64px;
-      font-family: "Playfair Display", serif;
-      font-size: 27px;
+      margin-top: 52px;
+      font-family: var(--font-serif);
+      font-size: 25px;
       font-weight: 400;
-      line-height: 1.15;
-      letter-spacing: -0.02em;
+      line-height: 1.22;
+      letter-spacing: -0.01em;
     }
 
     .project-card p { margin-top: 16px; color: var(--muted); font-size: 14px; line-height: 1.65; }
@@ -343,7 +391,7 @@
       gap: 48px;
       align-items: center;
       padding: clamp(28px, 5vw, 56px);
-      border: 1px solid var(--tertiary);
+      border: 1px solid rgba(184, 137, 78, 0.28);
       border-radius: 8px;
       background: rgba(242, 234, 220, 0.035);
     }
@@ -368,8 +416,14 @@
       .section-head,
       .contact-card { grid-template-columns: 1fr; }
       .hero { padding-top: 58px; }
+      h1 {
+        max-width: 12ch;
+        font-size: clamp(54px, 13vw, 78px);
+        line-height: 1.02;
+      }
       .portrait-panel { min-height: 390px; }
-      .article-row { grid-template-columns: 48px 1fr 28px; gap: 12px; }
+      .article-row { grid-template-columns: 76px 1fr 28px; gap: 12px; }
+      .start-here { grid-template-columns: 1fr; gap: 10px; }
       .article-date { grid-column: 2; grid-row: 1; }
       .article-title { grid-column: 1 / -1; }
       .article-arrow { grid-column: 3; grid-row: 1; }
@@ -381,14 +435,57 @@
       .site-nav,
       main,
       .site-footer { width: min(var(--max), calc(100% - 28px)); }
-      .nav-cta { width: 100%; }
-      h1 { font-size: clamp(48px, 16vw, 72px); }
-      .hero-copy { font-size: 21px; }
+      .site-nav { gap: 18px; padding: 22px 0 24px; }
+      .nav-links { gap: 10px 18px; }
+      .nav-cta { min-width: 104px; }
+      .hero { gap: 38px; padding: 46px 0 68px; }
+      .eyebrow {
+        margin-bottom: 20px;
+        font-size: 11px;
+        letter-spacing: 0.15em;
+      }
+      h1 {
+        max-width: 9ch;
+        font-size: clamp(43px, 11.8vw, 52px);
+        line-height: 1.06;
+        letter-spacing: -0.025em;
+      }
+      .hero-copy {
+        max-width: 22rem;
+        margin-top: 24px;
+        font-size: 19px;
+      }
+      .button-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        margin-top: 30px;
+      }
+      .button { width: fit-content; max-width: 100%; min-width: 0; padding-inline: 14px; }
+      .portrait-panel {
+        min-height: 330px;
+        padding: 22px;
+      }
+      .featured-title { font-size: clamp(31px, 9vw, 38px); }
+      .start-here { font-size: 13px; }
+      .start-links { gap: 9px 14px; }
       .section { padding: 64px 0; }
       .article-row { padding: 18px 0; }
       .project-grid { grid-template-columns: 1fr; }
       .project-card { min-height: 230px; }
       .project-card h3 { margin-top: 42px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+      }
     }
   </style>
 </head>
@@ -406,202 +503,211 @@
   <main>
     <section class="hero" aria-labelledby="hero-title">
       <div>
-        <p class="eyebrow">Personal field notes / AI experiments</p>
-        <h1 id="hero-title">写值得读的东西，做值得写的 <em>AI</em> 实验。</h1>
-        <p class="hero-copy">这里记录我用 AI 写作、写代码、做音乐、跑项目和做自媒体的具体实验。少一点工具崇拜，多一点真实复盘。</p>
+        <p class="eyebrow">普通人用 AI 的实战记录</p>
+        <h1 id="hero-title">把 <em>AI</em> 用到具体问题里。</h1>
+        <p class="hero-copy">这里记录我亲自试过的 AI 工作流：怎么订阅工具、怎么写内容、怎么做音乐和视频，以及哪些坑不值得再踩一次。</p>
         <div class="button-row">
-          <a class="button primary" href="#articles">阅读最新文章</a>
-          <a class="button" href="./article/chatgpt-plus-ios-turkey.html">本地文章</a>
+          <a class="button primary" href="#articles">按问题找文章</a>
+          <a class="button" href="./article/chatgpt-plus-ios-turkey.html">读 ChatGPT 订阅教程</a>
         </div>
       </div>
 
       <a class="portrait-panel" href="https://mp.weixin.qq.com/s/lCvkNYddiWa4HPgm-Ydc9Q" target="_blank" rel="noreferrer">
-        <span class="portrait-meta">Featured essay <span class="featured-date">/ 2026-05-26</span></span>
+        <span class="portrait-meta">推荐阅读 <span class="featured-date">/ 5月26日</span></span>
         <h2 class="featured-title">NotebookLM + Suno 把历史教材写成歌</h2>
-        <span class="open-link">打开文章 <span aria-hidden="true">-&gt;</span></span>
+        <span class="open-link">看完整流程 <span aria-hidden="true">-&gt;</span></span>
       </a>
     </section>
 
     <section id="articles" class="section" aria-labelledby="articles-title">
       <div class="section-head">
         <div>
-          <span class="section-label">Archive</span>
-          <h2 id="articles-title">博客列表</h2>
+          <span class="section-label">按问题开始</span>
+          <h2 id="articles-title">先找你现在要解决的事</h2>
         </div>
-        <p class="section-intro">按发布时间倒序整理。每篇文章都对应一次真实使用、一次失败记录或一次可复用的工作流。</p>
+        <p class="section-intro">如果你只是想快速解决一个 AI 使用问题，先从下面的入口开始。完整文章仍按发布时间倒序保留。</p>
+      </div>
+      <div class="start-here" aria-label="推荐阅读路径">
+        <span class="start-here-title">从这里读</span>
+        <div class="start-links">
+          <a href="./article/chatgpt-plus-ios-turkey.html">ChatGPT Plus 怎么订阅</a>
+          <a href="https://mp.weixin.qq.com/s/lCvkNYddiWa4HPgm-Ydc9Q" target="_blank" rel="noreferrer">NotebookLM 怎么做内容</a>
+          <a href="https://mp.weixin.qq.com/s/VKs8Eon_SY0xy4IL3s2BIQ" target="_blank" rel="noreferrer">AI 工具怎么记账</a>
+          <a href="https://mp.weixin.qq.com/s/xsgPv6jRWwVn6Ea1TEC_4Q" target="_blank" rel="noreferrer">AI 公众号工作流怎么跑</a>
+        </div>
       </div>
       <div class="article-list">
         <a class="article-row is-featured" href="https://mp.weixin.qq.com/s/lCvkNYddiWa4HPgm-Ydc9Q" target="_blank" rel="noreferrer">
-          <span class="article-index">01</span>
-          <span class="article-date">2026-05-26</span>
+          <span class="article-index">工作流</span>
+          <span class="article-date">5月26日</span>
           <span class="article-title">NotebookLM + Suno 把历史教材写成歌</span>
           <span class="article-arrow" aria-hidden="true">-&gt;</span>
         </a>
         <a class="article-row" href="https://mp.weixin.qq.com/s/laDzpu0lllIxLjd3-7-Ieg" target="_blank" rel="noreferrer">
-          <span class="article-index">02</span>
-          <span class="article-date">2026-05-20</span>
+          <span class="article-index">工具</span>
+          <span class="article-date">5月20日</span>
           <span class="article-title">Suno 写完歌就结束了？你还差一个能发出去的 MV 工具。</span>
           <span class="article-arrow" aria-hidden="true">-&gt;</span>
         </a>
         <a class="article-row" href="https://mp.weixin.qq.com/s/HqlA__RcUUy2ql9zv8gl-Q" target="_blank" rel="noreferrer">
-          <span class="article-index">03</span>
-          <span class="article-date">2026-05-18</span>
+          <span class="article-index">建站</span>
+          <span class="article-date">5月18日</span>
           <span class="article-title">土区订阅 chatgpt plus 教程被封,我决定搭建一个个人博客</span>
           <span class="article-arrow" aria-hidden="true">-&gt;</span>
         </a>
         <a class="article-row" href="./article/chatgpt-plus-ios-turkey.html">
-          <span class="article-index">04</span>
-          <span class="article-date">2026-05-09</span>
+          <span class="article-index">订阅</span>
+          <span class="article-date">5月9日</span>
           <span class="article-title">被封号坑惨了？我用这个方法订阅 ChatGPT Plus，稳了快一个月</span>
           <span class="article-arrow" aria-hidden="true">-&gt;</span>
         </a>
         <a class="article-row" href="https://mp.weixin.qq.com/s/3Cbyy4rQNTC-WmezqaHK-Q" target="_blank" rel="noreferrer">
-          <span class="article-index">05</span>
-          <span class="article-date">2026-05-07</span>
+          <span class="article-index">复盘</span>
+          <span class="article-date">5月7日</span>
           <span class="article-title">4月份复盘：涨粉2984，广告主收益434，还有跨境电商第一单</span>
           <span class="article-arrow" aria-hidden="true">-&gt;</span>
         </a>
         <a class="article-row" href="https://mp.weixin.qq.com/s/E7xJtLkFumMuetTay7YNlg" target="_blank" rel="noreferrer">
-          <span class="article-index">06</span>
-          <span class="article-date">2026-04-23</span>
+          <span class="article-index">商业</span>
+          <span class="article-date">4月23日</span>
           <span class="article-title">99% 的人看完 GPT-IMAGE-2 都在感叹，1% 的人在找钱</span>
           <span class="article-arrow" aria-hidden="true">-&gt;</span>
         </a>
         <a class="article-row" href="https://mp.weixin.qq.com/s/pjgP78uGOFmkWS_PKOjdzg" target="_blank" rel="noreferrer">
-          <span class="article-index">07</span>
-          <span class="article-date">2026-04-17</span>
+          <span class="article-index">音乐</span>
+          <span class="article-date">4月17日</span>
           <span class="article-title">AI写歌，花了 10 美元，赚了 0.14 元，但我还在继续</span>
           <span class="article-arrow" aria-hidden="true">-&gt;</span>
         </a>
         <a class="article-row" href="https://mp.weixin.qq.com/s/Co4pNpdv6idCDXIozA4AMA" target="_blank" rel="noreferrer">
-          <span class="article-index">08</span>
-          <span class="article-date">2026-04-14</span>
+          <span class="article-index">音乐</span>
+          <span class="article-date">4月14日</span>
           <span class="article-title">AI 写歌比 AI 写小说容易？我来帮你跑这个实验</span>
           <span class="article-arrow" aria-hidden="true">-&gt;</span>
         </a>
         <a class="article-row" href="https://mp.weixin.qq.com/s/dXf6WPpzNR0WaDWCjp9-Nw" target="_blank" rel="noreferrer">
-          <span class="article-index">09</span>
-          <span class="article-date">2026-04-03</span>
+          <span class="article-index">复盘</span>
+          <span class="article-date">4月3日</span>
           <span class="article-title">3月份复盘：普通人做自媒体，最值钱的其实是“你自己”</span>
           <span class="article-arrow" aria-hidden="true">-&gt;</span>
         </a>
         <a class="article-row" href="https://mp.weixin.qq.com/s/weMfNNdmtR_Rkk8GS1dJDQ" target="_blank" rel="noreferrer">
-          <span class="article-index">10</span>
-          <span class="article-date">2026-03-31</span>
+          <span class="article-index">提示词</span>
+          <span class="article-date">3月31日</span>
           <span class="article-title">什么是_提示词开源_？从三款AI语音输入法说起</span>
           <span class="article-arrow" aria-hidden="true">-&gt;</span>
         </a>
         <a class="article-row" href="https://mp.weixin.qq.com/s/VKs8Eon_SY0xy4IL3s2BIQ" target="_blank" rel="noreferrer">
-          <span class="article-index">11</span>
-          <span class="article-date">2026-03-30</span>
+          <span class="article-index">工具</span>
+          <span class="article-date">3月30日</span>
           <span class="article-title">用龙虾帮我记账，账单里翻出一笔忘了的奖金</span>
           <span class="article-arrow" aria-hidden="true">-&gt;</span>
         </a>
         <a class="article-row" href="https://mp.weixin.qq.com/s/v8srSazCi-bjsJdnGyx3_g" target="_blank" rel="noreferrer">
-          <span class="article-index">12</span>
-          <span class="article-date">2026-03-23</span>
+          <span class="article-index">陪伴</span>
+          <span class="article-date">3月23日</span>
           <span class="article-title">我在微信养了一只龙虾，我希望它能帮我实现数字永生</span>
           <span class="article-arrow" aria-hidden="true">-&gt;</span>
         </a>
         <a class="article-row" href="https://mp.weixin.qq.com/s/yiLe05o2dstzwvIY3hldHw" target="_blank" rel="noreferrer">
-          <span class="article-index">13</span>
-          <span class="article-date">2026-03-21</span>
+          <span class="article-index">编程</span>
+          <span class="article-date">3月21日</span>
           <span class="article-title">一个前端工程师和 AI 之父，同时得了「不写代码焦虑症」</span>
           <span class="article-arrow" aria-hidden="true">-&gt;</span>
         </a>
         <a class="article-row" href="https://mp.weixin.qq.com/s/xsgPv6jRWwVn6Ea1TEC_4Q" target="_blank" rel="noreferrer">
-          <span class="article-index">14</span>
-          <span class="article-date">2026-03-19</span>
+          <span class="article-index">工作流</span>
+          <span class="article-date">3月19日</span>
           <span class="article-title">用 Claude Code 帮我写公众号赚到钱后，我把这套流程开源了</span>
           <span class="article-arrow" aria-hidden="true">-&gt;</span>
         </a>
         <a class="article-row" href="https://mp.weixin.qq.com/s/jO09LdPCn7NPAID3tQouNQ" target="_blank" rel="noreferrer">
-          <span class="article-index">15</span>
-          <span class="article-date">2026-03-19</span>
+          <span class="article-index">趋势</span>
+          <span class="article-date">3月19日</span>
           <span class="article-title">AI 不会替你赚钱：Dan Koe 谈 2026 年一人企业的真正打法</span>
           <span class="article-arrow" aria-hidden="true">-&gt;</span>
         </a>
         <a class="article-row" href="http://mp.weixin.qq.com/s?__biz=MzU3MTcxOTg4OQ==&amp;mid=2247484567&amp;idx=1&amp;sn=2059491a49596890b0a487fe8193c747&amp;chksm=fcdaad29cbad243fa4f2dc71e4a2c8c0982cc5babadf3d078ae437e275569ec5b74ac4316304" target="_blank" rel="noreferrer">
-          <span class="article-index">16</span>
-          <span class="article-date">2026-03-15</span>
+          <span class="article-index">写作</span>
+          <span class="article-date">3月15日</span>
           <span class="article-title">AI 写小说不赚钱，但 AI 写公众号赚钱了</span>
           <span class="article-arrow" aria-hidden="true">-&gt;</span>
         </a>
         <a class="article-row" href="http://mp.weixin.qq.com/s?__biz=MzU3MTcxOTg4OQ==&amp;mid=2247484531&amp;idx=1&amp;sn=a2810c215be915866c0e28f106e172a7&amp;chksm=fcdaadcdcbad24db58f01b34e6ced3d229690ca076a656ac0639eb57ed5cd02ac4ff70542c8e" target="_blank" rel="noreferrer">
-          <span class="article-index">17</span>
-          <span class="article-date">2026-03-11</span>
+          <span class="article-index">小红书</span>
+          <span class="article-date">3月11日</span>
           <span class="article-title">我用 AI 生图发了几十期小红书，停更之后反而赚到了钱</span>
           <span class="article-arrow" aria-hidden="true">-&gt;</span>
         </a>
         <a class="article-row" href="http://mp.weixin.qq.com/s?__biz=MzU3MTcxOTg4OQ==&amp;mid=2247484499&amp;idx=1&amp;sn=ed9f8477b149dc26b4f140f3548c9822&amp;chksm=fcdaadedcbad24fb637afe4054191dce87a9a6a51abcaee820ef0c729f8f2990ea1bf396b71b" target="_blank" rel="noreferrer">
-          <span class="article-index">18</span>
-          <span class="article-date">2026-03-08</span>
+          <span class="article-index">写作</span>
+          <span class="article-date">3月8日</span>
           <span class="article-title">不出意外的，又出意外了。第二次投稿七猫，又被拒了。</span>
           <span class="article-arrow" aria-hidden="true">-&gt;</span>
         </a>
         <a class="article-row" href="http://mp.weixin.qq.com/s?__biz=MzU3MTcxOTg4OQ==&amp;mid=2247484478&amp;idx=1&amp;sn=3de6e52138b3e02e8c0b45caf3f47cc7&amp;chksm=fcdaad80cbad2496403a8800c0954fbfe2c9e74110b0af6dd1133e3680d6904aff2123d8c106" target="_blank" rel="noreferrer">
-          <span class="article-index">19</span>
-          <span class="article-date">2026-03-05</span>
+          <span class="article-index">写作</span>
+          <span class="article-date">3月5日</span>
           <span class="article-title">用 AI 写小说被拒稿后：朋友看完第一稿叫好，第二稿崩溃，第三稿我没敢给他看</span>
           <span class="article-arrow" aria-hidden="true">-&gt;</span>
         </a>
         <a class="article-row" href="http://mp.weixin.qq.com/s?__biz=MzU3MTcxOTg4OQ==&amp;mid=2247484438&amp;idx=1&amp;sn=f2f6dde9baf3d2b024f0a44063b97abe&amp;chksm=fcdaada8cbad24be592bc73cfb9666cb00eeed842a8f64cbcc2a7db836728f7f9cd87729c8a0" target="_blank" rel="noreferrer">
-          <span class="article-index">20</span>
-          <span class="article-date">2026-03-02</span>
+          <span class="article-index">小说</span>
+          <span class="article-date">3月2日</span>
           <span class="article-title">我用 Claude Code 写了一部 5 万字小说，投稿七猫，被拒了</span>
           <span class="article-arrow" aria-hidden="true">-&gt;</span>
         </a>
         <a class="article-row" href="http://mp.weixin.qq.com/s?__biz=MzU3MTcxOTg4OQ==&amp;mid=2247484420&amp;idx=1&amp;sn=9db470780ba4dbc468385f0c6b065f6e&amp;chksm=fcdaadbacbad24ac244287293c779e51bc05fedc4389d195d25058b701eefd155ca703ae463d" target="_blank" rel="noreferrer">
-          <span class="article-index">21</span>
-          <span class="article-date">2026-03-01</span>
+          <span class="article-index">编程</span>
+          <span class="article-date">3月1日</span>
           <span class="article-title">Claude Code 负责人 Boris Cherny：编程已被解决，我从 11 月起没手写过一行代码</span>
           <span class="article-arrow" aria-hidden="true">-&gt;</span>
         </a>
         <a class="article-row" href="http://mp.weixin.qq.com/s?__biz=MzU3MTcxOTg4OQ==&amp;mid=2247484401&amp;idx=1&amp;sn=dd264c8000fe87acff0cfc682479e079&amp;chksm=fcdaaa4fcbad23597d234d87c64ed205c25a30ca78a1a6c486231951a5de349c730f089e0675" target="_blank" rel="noreferrer">
-          <span class="article-index">22</span>
-          <span class="article-date">2026-02-27</span>
+          <span class="article-index">方法</span>
+          <span class="article-date">2月27日</span>
           <span class="article-title">硅谷顶级开发者都在用的&quot;乐高积木法&quot;</span>
           <span class="article-arrow" aria-hidden="true">-&gt;</span>
         </a>
         <a class="article-row" href="http://mp.weixin.qq.com/s?__biz=MzU3MTcxOTg4OQ==&amp;mid=2247484392&amp;idx=1&amp;sn=c2a463f479e9625c93d32608c5ffb8ef&amp;chksm=fcdaaa56cbad2340842128a1d312e163c6231250de77c8704ed5c9dc810096cb06226152a7e9" target="_blank" rel="noreferrer">
-          <span class="article-index">23</span>
-          <span class="article-date">2026-02-26</span>
+          <span class="article-index">指南</span>
+          <span class="article-date">2月26日</span>
           <span class="article-title">NotebookLM 指南 | 7 个浏览器插件 + 6 大场景 + 1 套组合拳，从入门到上瘾</span>
           <span class="article-arrow" aria-hidden="true">-&gt;</span>
         </a>
         <a class="article-row" href="http://mp.weixin.qq.com/s?__biz=MzU3MTcxOTg4OQ==&amp;mid=2247484383&amp;idx=1&amp;sn=f629c09ace5c280ddeb568554e3387ec&amp;chksm=fcdaaa61cbad23776cc507da06857084dd26dfd460736e7b9b51f6ffe5e4fc393dcad367bf9f" target="_blank" rel="noreferrer">
-          <span class="article-index">24</span>
-          <span class="article-date">2026-02-25</span>
+          <span class="article-index">案例</span>
+          <span class="article-date">2月25日</span>
           <span class="article-title">Every CEO Dan Shipper：15个人，5款产品，0行手写代码，7位数营收</span>
           <span class="article-arrow" aria-hidden="true">-&gt;</span>
         </a>
         <a class="article-row" href="http://mp.weixin.qq.com/s?__biz=MzU3MTcxOTg4OQ==&amp;mid=2247484360&amp;idx=1&amp;sn=95046ae224e27ac841ad6a0ab04efa57&amp;chksm=fcdaaa76cbad2360dbb487b18c316af1a40e5270e5cf3fd3e81e247489daf90673b38292f9dc" target="_blank" rel="noreferrer">
-          <span class="article-index">25</span>
-          <span class="article-date">2026-02-24</span>
+          <span class="article-index">观点</span>
+          <span class="article-date">2月24日</span>
           <span class="article-title">AI 让写代码变成白菜价，程序员还剩下什么？</span>
           <span class="article-arrow" aria-hidden="true">-&gt;</span>
         </a>
         <a class="article-row" href="http://mp.weixin.qq.com/s?__biz=MzU3MTcxOTg4OQ==&amp;mid=2247484336&amp;idx=1&amp;sn=af62aea40a0de51ceffb405a6ee5f410&amp;chksm=fcdaaa0ecbad2318090bbd66c88d5dfcf1b2e88e4f3982c7ee148da034dea8c8fd3759265c8c" target="_blank" rel="noreferrer">
-          <span class="article-index">26</span>
-          <span class="article-date">2026-02-05</span>
+          <span class="article-index">Codex</span>
+          <span class="article-date">2月5日</span>
           <span class="article-title">OpenAI 推桌面版 CodeX：把 AI 的工作变成更好跟进</span>
           <span class="article-arrow" aria-hidden="true">-&gt;</span>
         </a>
         <a class="article-row" href="http://mp.weixin.qq.com/s?__biz=MzU3MTcxOTg4OQ==&amp;mid=2247484326&amp;idx=1&amp;sn=f055bf9bcaf34e642c454291d4bffef0&amp;chksm=fcdaaa18cbad230e0ede6ba857a5751490be7f04c7f01c39cc23c2b6dba749e39960340410f3" target="_blank" rel="noreferrer">
-          <span class="article-index">27</span>
-          <span class="article-date">2026-01-31</span>
+          <span class="article-index">安装</span>
+          <span class="article-date">1月31日</span>
           <span class="article-title">我装了十几次 Claude Code，才总结出这套「一次成功」的安装方案</span>
           <span class="article-arrow" aria-hidden="true">-&gt;</span>
         </a>
         <a class="article-row" href="http://mp.weixin.qq.com/s?__biz=MzU3MTcxOTg4OQ==&amp;mid=2247484247&amp;idx=1&amp;sn=b89c3e57aed928c35da6f23a7384aa9b&amp;chksm=fcdaaae9cbad23ff4d05aa0da1949d9b9a61328317d0bc6b356111c39230922500baf03dfbc8" target="_blank" rel="noreferrer">
-          <span class="article-index">28</span>
-          <span class="article-date">2026-01-20</span>
+          <span class="article-index">浏览器</span>
+          <span class="article-date">1月20日</span>
           <span class="article-title">用一个登录案例，体验 agent-browser 的完整流程</span>
           <span class="article-arrow" aria-hidden="true">-&gt;</span>
         </a>
         <a class="article-row" href="http://mp.weixin.qq.com/s?__biz=MzU3MTcxOTg4OQ==&amp;mid=2247483998&amp;idx=1&amp;sn=f62da697cb361d5a8aa305d0583433f4&amp;chksm=fcdaabe0cbad22f6157fc03c5a945298f8ce04d0478a25739c022dcbb47483d2dd351e75d6c0" target="_blank" rel="noreferrer">
-          <span class="article-index">29</span>
-          <span class="article-date">2026-01-11</span>
+          <span class="article-index">Skills</span>
+          <span class="article-date">1月11日</span>
           <span class="article-title">Claude Skills入门：5分钟让AI学会你的工作流</span>
           <span class="article-arrow" aria-hidden="true">-&gt;</span>
         </a>
@@ -611,29 +717,29 @@
     <section id="projects" class="section" aria-labelledby="projects-title">
       <div class="section-head">
         <div>
-          <span class="section-label">Open source</span>
-          <h2 id="projects-title">开源项目</h2>
+          <span class="section-label">文章背后的工具</span>
+          <h2 id="projects-title">可复用的 AI 工作流</h2>
         </div>
-        <p class="section-intro">这些项目不是作品集装饰，而是文章背后的实验场：提示词、小说创作、公众号工作流和 AI 音乐 MV。</p>
+        <p class="section-intro">这些仓库对应文章里的具体实验。你可以直接看代码、提示词和流程，而不是只看复盘结论。</p>
       </div>
       <div class="project-grid">
         <a class="project-card" href="https://github.com/YuppyChen/yuppy-prompts" target="_blank" rel="noreferrer">
-          <span class="project-number">01</span>
+          <span class="project-number">提示词</span>
           <h3>提示词仓库</h3>
           <p>个人整理的提示词仓库，把可复用的 AI 工作流沉淀下来。</p>
         </a>
         <a class="project-card" href="https://github.com/YuppyChen/novelist-test" target="_blank" rel="noreferrer">
-          <span class="project-number">02</span>
+          <span class="project-number">小说</span>
           <h3>AI 中文小说创作工作站</h3>
           <p>用 AI 写长篇中文小说，验证从设定到成稿的完整链路。</p>
         </a>
         <a class="project-card" href="https://github.com/YuppyChen/ai-wechat" target="_blank" rel="noreferrer">
-          <span class="project-number">03</span>
+          <span class="project-number">公众号</span>
           <h3>AI 写公众号工作流</h3>
           <p>把选题、草稿、排版和发布流程拆成可执行的自动化链路。</p>
         </a>
         <a class="project-card" href="https://github.com/YuppyChen/AI-suno-mv" target="_blank" rel="noreferrer">
-          <span class="project-number">04</span>
+          <span class="project-number">音乐</span>
           <h3>AI 音乐 MV 制作</h3>
           <p>围绕 Suno 和视频生成，探索低成本音乐内容生产。</p>
         </a>
@@ -643,7 +749,7 @@
     <section id="contact" class="section" aria-labelledby="contact-title">
       <div class="contact-card">
         <div>
-          <span class="contact-kicker">Contact</span>
+          <span class="contact-kicker">继续交流</span>
           <h2 id="contact-title">联系我</h2>
           <p>如果你也在用 AI 做内容、做工具、做副业，或者只是想交流具体问题，可以从邮箱、GitHub 或公众号找到我。</p>
           <div class="button-row">
